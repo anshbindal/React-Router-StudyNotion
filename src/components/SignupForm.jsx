@@ -2,8 +2,9 @@ import React from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-function SignupForm(setIsLoggedIn) {
+function SignupForm({ setIsLoggedIn }) {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -25,7 +26,7 @@ function SignupForm(setIsLoggedIn) {
 
   function submitHandler(event) {
     event.preventDefault();
-    if (formData.password != formData.confirmPassword) {
+    if (formData.password !== formData.confirmPassword) {
       toast.error("Passwords do not match");
       return;
     }
